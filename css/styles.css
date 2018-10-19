@@ -1,0 +1,651 @@
+*{
+    font-family:  Roboto, Arial, sans-serif !important;
+}
+
+html, body{
+  margin:0;
+  padding:0;
+  height:100%;
+  overflow:hidden;
+  background:#f2f2f2;
+  font-family: Roboto, serif;
+  font-size: 14px;
+  line-height: 1.43;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+#wrapper{
+    display: flex;
+    width: 100%;    
+}
+#search-panel{
+    order: 1;
+    flex: 0 0 220px;
+    margin:8px 4px 8px 8px;
+}
+#scheduler_here{
+    line-height: 100%;
+    width:100%;
+    height:calc(100% - 16px);
+    background: white;
+    order: 2;
+    flex:10;
+    margin:8px 8px 8px 0;
+}
+#search-panel form,
+.search_form{
+    height: 100%;
+}
+.hd_line{
+    height:1px;
+    width:100%;
+    margin:10px 0 20px;
+}
+.search_form{
+    width:220px;
+    padding:14px 12px;
+    box-sizing: border-box;
+    background-repeat:repeat-x;
+    background-color: white;
+}
+.search_title{
+    font-weight: 500;
+}
+.message{
+    text-align:right;
+    color:White;
+    font-size:18px;
+    height:24px;
+    padding:5px;
+}
+.car_brand, .car_price{
+    border-left:none !important;
+    overflow:hidden;
+}
+div.car_price{
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 14px;
+    height: 14px;
+    line-height: 14px;
+    margin-top: -2px;
+    text-align:center;
+    width:100%;
+}
+div.car_brand{
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
+    font-weight:500;
+    height: 33px;
+    line-height: 33px;
+    white-space:nowrap;
+}
+
+.search_form select{
+    height:21px;
+    vertical-align:top;
+}
+.search_form option{
+    vertical-align:middle;
+}
+.search_form fieldset{
+    border: solid 1px #ededed;
+    margin:10px 0 20px;
+    padding: 6px 18px;
+}
+.search_form .type_filter {
+    padding-bottom: 17px;
+}
+.search_form .type_filter legend {
+    margin-left: -6px;
+}
+.search_form .price_filter legend {
+    margin-left: -8px;
+}
+.search_form .price_filter {
+    padding-bottom: 12px;
+}
+.search_form fieldset label{
+    line-height:2;
+}
+.search_form legend{
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.71;
+    padding: 0 6px;
+    text-align: left;
+}
+
+.search_form{
+    border:none;
+}
+.pick_up_filter {
+    margin-top: 27px;
+}
+.drop_off_filter {
+    margin-top: 19px;
+}
+
+.minical_container{
+    position:absolute;
+    width:200px;
+}
+.check_dates{
+    line-height:14px;
+    margin-bottom:-10px;
+    margin-left: 3px;
+    margin-top:7px;
+}
+.check_dates > input{
+    width:20px;
+    vertical-align:middle;
+}
+.check_dates .checkbox {
+    margin-right: 4px;
+}
+#dateFrom, #dateTo{
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
+    padding: 1px 5px 1px 30px;
+    width: 113px;
+}
+
+#dateFrom, #dateTo{
+    border: solid 1px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+    height: 32px;
+    vertical-align: top;
+}
+
+.select {
+    display: inline-block;
+    height: 32px;
+    margin-left: 5px;
+    position: relative;
+    vertical-align: middle;
+    width:73px;
+}
+
+.select>select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: transparent;
+    border: none;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
+    height: 100%;
+    outline: none;
+    padding: 0 0 0 8px;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.select>.select_layout {
+    border: solid 1px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.select>.select_layout:after {
+    content: ' ';
+    border: 5px solid #757575;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    margin-top: -2px;
+    position: absolute;
+    right: 10px;
+    top:50%;
+}
+
+.date_calendar{
+    cursor:pointer;
+    height:18px;
+    left:-2px;
+    position:relative;
+    vertical-align:baseline;
+    top:1px;
+    width:18px;
+}
+
+.dhx_cal_navline{
+    box-shadow: 0 1px 2px 2px #FFF;
+}
+.dhx_cal_header{
+    width:100% !important;
+    border:1px solid white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.dhx_cal_header div div{
+    border-left:1px solid white;
+    border-left:1px solid white;
+}
+
+.dhx_cal_event_line {
+    margin-top:42px;
+    line-height: 32px;
+}
+.dhx_cal_event_line .dhx_event_resize_start{
+    display:none;
+}
+
+.checkbox {
+    display: inline-block;
+    height: 18px;
+    margin-right: 10px;
+    position: relative;
+    vertical-align: middle;
+    width: 18px;
+}
+
+.checkbox>input[type=checkbox]{
+    cursor: pointer;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.checkbox .checkbox_marker {
+    background-color: transparent;
+    border: 2px solid #797979;
+    border-radius: 2px;
+    box-sizing: border-box;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.checkbox>input[type=checkbox]:checked + .checkbox_marker {
+    background-color: #0097a7;
+    border: none;
+}
+
+.checkbox .checkbox_marker:after {
+    background-color: transparent;
+    border: 2px solid #f2fafb;
+    border-right: none;
+    border-top: none;
+    content: ' ';
+    display: block;
+    height: 35%;
+    position: absolute;
+    transform: rotate(-45deg);
+    top: 15%;
+    left: 10%;
+    width: 70%;
+    visibility: hidden;
+}
+
+.checkbox>input[type=checkbox]:checked + .checkbox_marker:after{
+    visibility: visible;
+}
+
+.checkbox_text {
+    vertical-align: middle;
+}
+
+.dhx_nav_container{
+    text-align: center;
+    width: 100%;
+}
+
+.dhx_cal_navline div {
+    top: 20px;
+}
+
+.dhx_cal_prev_button {
+    margin-right: 270px;
+}
+
+div.dhx_cal_prev_button, div.dhx_cal_next_button {
+    background: none;
+    border: none;
+    display: inline-block;
+    position: relative;
+    left: -90px;
+    right: 0;
+    top: 2px;
+    width: 20px;
+}
+
+.dhx_cal_prev_button:after, .dhx_cal_next_button:after {
+    border: 2px solid #868686;
+    content: ' ';
+    display: block;
+    height: 7px;
+    margin-top: -5px;
+    position: absolute;
+    transform: rotate(45deg);
+    top: 50%;
+    width: 7px;
+}
+
+.dhx_cal_prev_button:after {
+    border-right: none;
+    border-top: none;
+    left: 50%;
+}
+
+.dhx_cal_next_button:after {
+    border-left: none;
+    border-bottom: none;
+    right: 50%;
+}
+
+.dhx_cal_today_button {
+    border-radius: 2px;
+    left: 22px;
+    width: 74px;
+}
+
+.dhx_cal_today_button:hover {
+    background-color: #0dbbce;
+    color: #fff;
+}
+
+.dhx_cal_tab {
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 32px;
+    width: 87px;
+}
+
+.dhx_cal_tab[name=week_timeline_tab] {
+    right: 196px;
+}
+
+.dhx_cal_tab[name=two_week_timeline_tab] {
+    right: 108px;
+}
+
+.dhx_cal_tab[name=month_timeline_tab] {
+    right: 20px;
+}
+
+.dhx_cal_tab.active, .dhx_cal_tab, .dhx_cal_today_button {
+    border: solid 1px #0097a7;
+    color: #0097a7;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.dhx_cal_tab.active {
+    background-color: #0097a7;
+    color: #ffffff;
+    text-shadow: none;
+}
+
+.dhx_cal_tab:hover {
+    background-color: #0dbbce;
+    color: #fff;
+}
+
+.dhx_cal_tab_first{
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.dhx_cal_tab_last{
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+#lightbox_form {
+    background-color: #ffffff;
+    border-radius: 2px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    display: none;
+    height: 409px;
+    padding: 30px 26px 20px 28px;
+    position: absolute;
+    width: 405px;
+    z-index: 10001;
+}
+
+.lightbox_left_section, .lightbox_right_section {
+    display: inline-block;
+    height: auto;
+    line-height: 32px;
+    min-height: 32px;
+    position: relative;
+    text-align: left;
+    vertical-align: top;
+}
+
+.lightbox_left_section {
+    margin-bottom: 15px;
+    width: 70px;
+}
+
+.lightbox_left_section label {
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto, serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.lightbox_left_section:nth-child(3),
+.lightbox_right_section:nth-child(4) {
+    margin-bottom: 20px;
+}
+
+.lightbox_right_section {
+    margin-bottom: 15px;
+    padding-left: 1px;
+    width: 275px;
+}
+
+#lightboxStatus {
+    margin-bottom: 19px;
+}
+
+.lightbox_text_field {
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto, serif;
+    font-size: 14px;
+    height: 32px;
+    outline: solid 1px rgba(0, 0, 0, 0.08);
+    outline-offset: -1px;
+    padding: 1px 5px 1px 10px;
+    width: 100%;
+}
+
+.lightbox_select_field{
+    margin-left: 0;
+    width: 100%;
+}
+
+.dhx_minical_popup{
+    z-index: 10001;
+}
+
+.date_time_selector {
+    margin-top: 7px;
+    position: relative;
+}
+
+.search_form .date_calendar,
+.lightbox_date_select .date_calendar {
+    bottom: 2px;
+    left: 7px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+}
+
+.lightbox_date_select .date_text {
+    background-color: rgba(0, 0, 0, 0);
+    border: solid 1px rgba(0, 0, 0, 0.08);
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
+    height: 32px;
+}
+
+.lightbox_date_select .date_text {
+    box-sizing: border-box;
+    padding: 1px 5px 1px 30px;
+    vertical-align: middle;
+    width: 113px;
+}
+
+.lightbox_buttons {
+    margin-top: 19px;
+}
+
+.lightbox_buttons .lightbox_right_section {
+    text-align: right;
+}
+
+.lightbox_buttons .lightbox_button:not(:last-child) {
+    margin-right: 16px;
+}
+
+.lightbox_left_section .lightbox_button {
+    margin-left: -16px;
+}
+
+.lightbox_button:not(.lightbox_button_active):hover {
+    background-color: rgba(153, 153, 153, 0.2);
+}
+
+.lightbox_button {
+    background: none;
+    border: none;
+    border-radius: 2px;
+    color: rgba(0, 0, 0, 0.54);
+    cursor: pointer;
+    font-family: Roboto, serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 32px;
+    padding: 0 16px;
+}
+
+.lightbox_button_active {
+    color: #ffffff;
+    background-color: #0097a7;
+}
+
+.radio {
+    display: inline-block;
+    height: 20px;
+    margin-right: 10px;
+    position: relative;
+    vertical-align: middle;
+    width: 20px;
+}
+
+.radio>input[type=radio] {
+    cursor: pointer;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.radio>.radio_marker {
+    background-color: transparent;
+    border: 2px solid #797979;
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.radio>input[type=radio]:checked + .radio_marker {
+    border-color: #009688;
+}
+
+.radio>input[type=radio]:checked + .radio_marker:after {
+    content: ' ';
+    background-color: #009688;
+    border-radius: 50%;
+    height: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    width: 50%;
+}
+
+.dhx_rent_reservation {
+    background-color: #ef6c00;
+}
+
+.dhx_rent_prepaid {
+    background-color: #ba68c8;
+}
+
+.dhx_rent_payed {
+    background-color: #0097a7;
+}
+
+.dhtmlXTooltip.tooltip {
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto, serif;
+    line-height: 22px;
+    font-size: 14px;
+}
+
+.dhx_cell_holiday {
+    background-color: #fafafa;
+}
+
+.dhx_scale_bar {
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.dhx_cal_navline .dhx_cal_date {
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 20px;
+    font-weight: 500;
+    left: -90px;
+    opacity: 0.87;
+    top: 20px;
+}
+
+.dhx_cal_event_line .dhx_event_resize {
+    background: url(../content/resize_dots.png);
+    background-repeat: no-repeat;
+    padding-right: 7px;
+    opacity: 0.6;
+}
+
+.dhx_cal_event_line {
+    font-size: 14px;
+}
+
+div.event-bar-text {
+    box-sizing: border-box;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: calc(100% - 15px);
+}
+
+.dhx_matrix_scell, .dhx_matrix_cell {
+    border-color: #EDEDED;
+}

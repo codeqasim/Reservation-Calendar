@@ -1,0 +1,168 @@
+<!doctype html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>Car Rent</title>
+
+  <script src='./lib/dhtmlxScheduler/dhtmlxscheduler.js'></script>
+  <script src='./lib/dhtmlxScheduler/ext/dhtmlxscheduler_limit.js'></script>
+  <script src='./lib/dhtmlxScheduler/ext/dhtmlxscheduler_collision.js'></script>
+  <script src='./lib/dhtmlxScheduler/ext/dhtmlxscheduler_timeline.js'></script>
+  <script src='./lib/dhtmlxScheduler/ext/dhtmlxscheduler_editors.js'></script>
+  <script src='./lib/dhtmlxScheduler/ext/dhtmlxscheduler_minical.js'></script>
+  <script src='./lib/dhtmlxScheduler/ext/dhtmlxscheduler_tooltip.js'></script>
+  <script src='./js/mock_backend.js'></script>
+  <script src='./js/scripts.js'></script>
+
+  <link rel='stylesheet' href='./lib/dhtmlxScheduler/dhtmlxscheduler.css'>
+  <link rel='stylesheet' href='./css/styles.css'>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+</head>
+
+<body id="wrapper" onload="init()">
+  <div id="search-panel">
+    <form>
+      <div class="search_form">
+                <div class="controls">
+                    <fieldset class="type_filter">
+                        <legend>Type:</legend>
+                        <div id="type-options"></div>
+                    </fieldset>
+                    <fieldset class="price_filter">
+                       <legend>Price:</legend>
+                        <div id="price-options"></div>
+                    </fieldset>
+
+                    <div class="pick_up_filter">
+                        <span class="search_title">Pick Up Date:</span>
+                        <div class="date_time_selector">
+                            <img src="content/calendar.svg" class="date_calendar" id="minicalIconTo"
+                                 onclick="show_minical(this, 'dateFrom')"/>
+                            <input id="dateFrom" name="dateFrom" type="text" value="" placeholder="22/05/2017"
+                                   onclick="show_minical(this, 'dateFrom')"/>
+                            <div class="select">
+                                <select id="timeFrom" name="timeFrom" onchange="updateSections()"></select>
+                                <span class="select_layout"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="drop_off_filter">
+                        <span class="search_title">Drop Off Date:</span>
+                        <div class="date_time_selector">
+                            <img src="content/calendar.svg" class="date_calendar" id="minicalIconFrom" onclick="show_minical(this, 'dateTo')"/>
+                            <input id="dateTo" name="dateTo" type="text" value="" placeholder="24/05/2017"
+                                   onclick="show_minical(this, 'dateTo')"/>
+                            <div class="select">
+                                <select id="timeTo" name="timeTo" onchange="updateSections()"></select>
+                                <span class="select_layout"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="check_dates">
+                        <label>
+                            <div class="checkbox">
+                                <input checked="checked" data-val="true" data-val-required="The Boolean field is required." id="dateFilter" name="dateFilter" type="checkbox" value="true" onchange="updateSections()" />
+                                <span class="checkbox_marker"></span>
+                            </div>
+                        Only available
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+    </form>
+  </div>
+
+  <div id="scheduler_here" class="dhx_cal_container">
+      <div class="dhx_cal_navline">
+          <div class="dhx_nav_container">
+              <div class="dhx_cal_prev_button">&nbsp;</div>
+              <div class="dhx_cal_next_button">&nbsp;</div>
+          </div>
+          <div class="dhx_cal_today_button"></div>
+          <div class="dhx_cal_date"></div>
+          <div class="dhx_cal_tab dhx_cal_tab_first" name="week_timeline_tab"></div>
+          <div class="dhx_cal_tab" name="two_week_timeline_tab"></div>
+          <div class="dhx_cal_tab dhx_cal_tab_last" name="month_timeline_tab"></div>
+      </div>
+      <div class="dhx_cal_header">
+      </div>
+      <div class="dhx_cal_data">
+      </div>      
+  </div>
+
+  <div id="lightbox_form">
+      <div class="lightbox_left_section">
+          <label>Name</label>
+      </div>
+      <div class="lightbox_right_section">
+          <input id="lightboxName" type="text" class="lightbox_text_field">
+      </div>
+      <div class="lightbox_left_section">
+          <label>Car</label>
+      </div>
+      <div class="lightbox_right_section">
+          <div class="select lightbox_select_field">
+              <select id="lightboxCar"></select>
+              <span class="select_layout"></span>
+          </div>
+      </div>
+      <div class="lightbox_left_section">
+          <label>Status</label>
+      </div>
+      <div id="lightboxStatus" class="lightbox_right_section">
+          <label>
+              <div class="radio">
+                  <input name="status" type="radio">
+                  <span class="radio_marker"></span>
+              </div>
+              Reservation
+          </label><br/>
+          <label>
+              <div class="radio">
+                  <input name="status" type="radio">
+                  <span class="radio_marker"></span>
+              </div>
+              Prepaid
+          </label><br/>
+          <label>
+              <div class="radio">
+                  <input name="status" type="radio">
+                  <span class="radio_marker"></span>
+              </div>
+              100% payment
+          </label>
+      </div>
+      <div class="lightbox_left_section">
+          <label>Pick Up</label>
+      </div>
+      <div id="lightboxPickUpDate" class="lightbox_right_section lightbox_date_select">
+          <img src="content/calendar.svg" id="lightboxFromIcon" class="date_calendar" onclick="show_minical(this, 'lightboxFromDate')"/>
+          <input id="lightboxFromDate" name="dateFrom" type="text" class="date_text" value="" onclick="show_minical(this, 'lightboxFromDate')"/>
+          <div class="select">
+              <select id="lightboxFromTime" name="timeFrom"></select>
+              <span class="select_layout"></span>
+          </div>
+      </div>
+      <div class="lightbox_left_section">
+          <label>Drop Off</label>
+      </div>
+      <div id="lightboxDropOffDate" class="lightbox_right_section lightbox_date_select">
+          <img src="content/calendar.svg" id="lightboxToIcon" class="date_calendar" onclick="show_minical(this, 'lightboxToDate')"/>
+          <input id="lightboxToDate" name="dateFrom" type="text" class="date_text" value="" onclick="show_minical(this, 'lightboxToDate')"/>
+          <div class="select">
+              <select id="lightboxToTime" name="timeFrom"></select>
+              <span class="select_layout"></span>
+          </div>
+      </div>
+      <div class="lightbox_buttons">
+          <div class="lightbox_left_section">
+              <button class="lightbox_button" onclick="delete_event()">DELETE</button>
+          </div>
+          <div class="lightbox_right_section">
+              <button class="lightbox_button" onclick="close_form()">CANCEL</button>
+              <button class="lightbox_button lightbox_button_active" onclick="save_form()">SAVE</button>
+          </div>
+      </div>
+  </div>
+</body>
